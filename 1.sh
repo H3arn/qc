@@ -1,13 +1,24 @@
 #!/bin/bash
+
 # This script should be executed as root
+
+# prevent extra packages
 echo 'APT::Install-Recommends "0";' > /etc/apt/apt.conf.d/01norecommend
 echo 'APT::Install-Suggests "0";' >> /etc/apt/apt.conf.d/01norecommend
 apt update
-
 # GnuPG and dm-crypt
 apt install gnupg cryptsetup pcscd scdaemon 
 # Fish makes prompt easier, though kind of heavy (~40MB)
-apt install fish
-
+apt install fish #rsync
 # GUI
 apt install xserver-xorg-core xserver-xorg-input-all xinit openbox dbus-x11 keepassxc pinentry-qt lxterminal
+
+# set non-root user
+useradd -m -G sudo -s /usr/bin/fish user
+# add mountpoint for user
+mkdir -p /media/user/gpg
+chown -R user:user /media/user
+# prevent root login
+passwd -l root
+# switch to non-root user
+su user
