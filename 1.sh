@@ -15,6 +15,7 @@ apt install xserver-xorg-core xserver-xorg-input-all xinit openbox dbus-x11 keep
 
 # set non-root user
 useradd -m -G sudo -s /usr/bin/fish user
+passwd user
 # add mountpoint for user
 mkdir -p /media/user/gpg
 chown -R user:user /media/user
