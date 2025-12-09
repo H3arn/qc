@@ -1,5 +1,8 @@
 #!/bin/bash
+
 # This script should be executed as NON-ROOT user
+
+passwd
 
 # GnuPG config
 #mkdir -p ~/.gnupg
