@@ -9,7 +9,7 @@ passwd
 #chmod 700 ~/.gnupg
 # echo "# disable-ccid" > ~/.gnupg/scdaemon.conf
 
-# X wm config
+# X Server config
 cat <<EOF > ~/.xinitrc
 #!/bin/sh
 # 1. Merge X resources (Optional styling for xterm)
